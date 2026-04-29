@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紅棗之鄉｜苗栗公館 AI 智慧電商</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FAF9F6; /* 米白色底，增加空氣感 */
+            color: #4A4A4A;
+        }
+        h1, h2, h3 { font-family: 'Noto Serif TC', serif; }
+        
+        .airy-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .glass-nav { background: rgba(250, 249, 246, 0.8); backdrop-filter: blur(10px); }
+        
+        /* 低飽和度紅棗色 */
+        .jujube-red { color: #8B2635; }
+        .bg-jujube { background-color: #8B2635; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-widest jujube-red">公館紅棗</div>
+            <div class="hidden md:flex space-x-8 text-sm tracking-widest">
+                <a href="#growth" class="hover:text-red-800 transition">生長監測</a>
+                <a href="#story" class="hover:text-red-800 transition">穿龍圳故事</a>
+                <a href="#shop" class="hover:text-red-800 transition">精品商店</a>
+                <a href="#" class="bg-jujube text-white px-4 py-1 rounded-full">立即下單</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover opacity-40" alt="Gongguan Farm">
+        </div>
+        <div class="relative z-10 text-center px-6">
+            <span class="text-sm tracking-[0.3em] uppercase mb-4 block">Gongguan, Miaoli</span>
+            <h1 class="text-5xl md:text-7xl mb-6 jujube-red">陽光與清泉的紅寶石</h1>
+            <p class="text-lg md:text-xl font-light leading-loose max-w-2xl mx-auto">
+                全台唯一，來自穿龍圳百年灌溉系統滋養。<br>
+                結合 AI 智慧監測技術，將每一份純淨透明地呈現。
+            </p>
+            <div class="mt-10">
+                <a href="#growth" class="border border-stone-400 px-8 py-3 hover:bg-stone-800 hover:text-white transition duration-500">查看今日生長報告</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="growth" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-3xl mb-4">AI 智慧生長監測</h2>
+                    <p class="text-stone-500">實時串連穿龍圳數據，每一顆紅棗的誕生皆有跡可循。</p>
+                </div>
+                <div class="text-right mt-6 md:mt-0">
+                    <span class="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold">● 系統在線：智慧決策服務中</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
+                    <i class="fa-solid fa-droplet text-blue-300 text-2xl mb-4"></i>
+                    <h3 class="text-lg mb-2">穿龍圳水質</h3>
+                    <p class="text-3xl font-light mb-4">pH 7.2 <span class="text-sm text-stone-400">清澈</span></p>
+                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+                        <div class="bg-blue-300 h-full w-[85%]"></div>
+                    </div>
+                </div>
+                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
+                    <i class="fa-solid fa-sun text-yellow-300 text-2xl mb-4"></i>
+                    <h3 class="text-lg mb-2">今日累計日照</h3>
+                    <p class="text-3xl font-light mb-4">8.5 <span class="text-sm text-stone-400">小時</span></p>
+                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+                        <div class="bg-yellow-300 h-full w-[70%]"></div>
+                    </div>
+                </div>
+                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
+                    <i class="fa-solid fa-chart-line text-red-300 text-2xl mb-4"></i>
+                    <h3 class="text-lg mb-2">AI 預估採收日</h3>
+                    <p class="text-3xl font-light mb-4">7/28 <span class="text-sm text-stone-400">成熟期</span></p>
+                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+                        <div class="bg-red-300 h-full w-[92%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-24 flex items-center">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1">
+                <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&fit=crop&q=80&w=1000" class="rounded-lg shadow-2xl" alt="Red Dates Close up">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-4xl mb-8">百年穿龍圳，<br>流動的智慧。</h2>
+                <p class="leading-loose text-stone-600 mb-6">
+                    公館的紅棗不只是作物，它是與土地共生的成果。我們引進後龍溪的清澈水源，透過百年穿龍圳的灌溉系統，維持了土地最原始的活力。
+                </p>
+                <p class="leading-loose text-stone-600">
+                    現在，我們透過 AI 資訊服務，將這份古老的智慧轉化為精確的生長日誌，讓您每一口品嚐到的，都是透明、純淨的土地承諾。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-24 bg-stone-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl mb-4">產地精品</h2>
+                <div class="w-12 h-[1px] bg-stone-300 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="group">
+                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1615485500704-8e990f3900f1?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                    </div>
+                    <h3 class="text-sm tracking-wider">特級手工曬乾紅棗</h3>
+                    <p class="text-xs text-stone-400 mt-1">NT$ 450</p>
+                </div>
+                <div class="group">
+                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                    </div>
+                    <h3 class="text-sm tracking-wider">紅棗純釀果醋</h3>
+                    <p class="text-xs text-stone-400 mt-1">NT$ 580</p>
+                </div>
+                <div class="group">
+                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
+                        <img src="https://www.google.com/imgres?q=%E8%88%92%E5%A3%93%E7%B4%85%E6%A3%97%E8%8C%B6%E5%8C%85%E7%B5%84&imgurl=https%3A%2F%2Fimg.shoplineapp.com%2Fmedia%2Fimage_clips%2F5ef2f6173cc749003f191963%2Foriginal.jpg%3F1592981013&imgrefurl=https%3A%2F%2Fshop.magnet.com.tw%2Fproducts%2Forganic-jujube-tea-with-cranberry%3Fsrsltid%3DAfmBOorDC9_tM98nMtfOcxBNJ7BTni4V1EVPuBtSt8ASBwbT4PgVo0hA&docid=F_4EXH2DJ35IXM&tbnid=XePvAtNnpxDHlM&vet=12ahUKEwiDtYCT0JKUAxXVlK8BHQW9H9AQnPAOegQINRAB..i&w=1000&h=1000&hcb=2&ved=2ahUKEwiDtYCT0JKUAxXVlK8BHQW9H9AQnPAOegQINRAB" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                    </div>
+                    <h3 class="text-sm tracking-wider">舒壓紅棗茶包組</h3>
+                    <p class="text-xs text-stone-400 mt-1">NT$ 320</p>
+                </div>
+                <div class="group">
+                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
+                        <img src="https://images.unsplash.com/photo-1590004953392-5aba2e786369?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                    </div>
+                    <h3 class="text-sm tracking-wider">預購：產地生鮮紅棗</h3>
+                    <p class="text-xs text-stone-400 mt-1">NT$ 200 / 斤</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="ai-assistant" class="fixed bottom-8 right-8 z-[100]">
+        <div id="chat-bubble" class="bg-white border border-stone-100 airy-shadow px-6 py-4 rounded-2xl mb-4 hidden max-w-[250px] text-sm animate-bounce">
+            您好！我是紅棗 AI 助手，今天公館陽光普照，適合採收喔！想了解紅棗食譜嗎？
+        </div>
+        <button onclick="toggleChat()" class="bg-jujube text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:rotate-12 transition">
+            <i class="fa-solid fa-robot text-xl"></i>
+        </button>
+    </div>
+
+    <footer class="py-12 border-t border-stone-200">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest text-stone-400">
+            <p>© 2026 苗栗公館紅棗｜AI 數位轉型計畫</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="https://github.com" class="hover:text-stone-800">GITHUB SOURCE</a>
+                <a href="#" class="hover:text-stone-800">INSTAGRAM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 簡單的 AI 助手切換
+        function toggleChat() {
+            const bubble = document.getElementById('chat-bubble');
+            bubble.classList.toggle('hidden');
+        }
+
+        // 滾動效果：導覽列背景變換
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
