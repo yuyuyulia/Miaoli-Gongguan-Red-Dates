@@ -3,191 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>紅棗之鄉｜苗栗公館 AI 智慧電商</title>
+    <title>苗栗公館紅棗｜數據驅動的職人農產</title>
     
+    <!-- 引入 Tailwind CSS 與 Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        :root {
+            --jujube-red: #8B2635;
+            --airy-bg: #FAF9F6;
+        }
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #FAF9F6; /* 米白色底，增加空氣感 */
+            background-color: var(--airy-bg);
             color: #4A4A4A;
+            scroll-behavior: smooth;
         }
-        h1, h2, h3 { font-family: 'Noto Serif TC', serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif TC', serif; }
         
-        .airy-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .glass-nav { background: rgba(250, 249, 246, 0.8); backdrop-filter: blur(10px); }
+        /* 空氣感影與微互動 */
+        .airy-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        .glass-nav { background: rgba(250, 249, 246, 0.85); backdrop-filter: blur(12px); }
         
-        /* 低飽和度紅棗色 */
-        .jujube-red { color: #8B2635; }
-        .bg-jujube { background-color: #8B2635; }
+        .jujube-red-text { color: var(--jujube-red); }
+        .bg-jujube { background-color: var(--jujube-red); }
+        
+        /* 漸變與動畫 */
+        .fade-in { animation: fadeIn 1.5s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 滾動條美化 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--airy-bg); }
+        ::-webkit-scrollbar-thumb { background: #dcdcdc; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-widest jujube-red">公館紅棗</div>
-            <div class="hidden md:flex space-x-8 text-sm tracking-widest">
-                <a href="#growth" class="hover:text-red-800 transition">生長監測</a>
-                <a href="#story" class="hover:text-red-800 transition">穿龍圳故事</a>
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-stone-100 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-jujube rounded-full flex items-center justify-center text-white text-xs">棗</div>
+                <div class="text-xl font-bold tracking-[0.2em] jujube-red-text serif">公館紅棗</div>
+            </div>
+            <div class="hidden md:flex items-center space-x-10 text-xs tracking-widest font-medium uppercase text-stone-500">
+                <a href="#growth" class="hover:text-red-800 transition">AI 生長監測</a>
+                <a href="#journal" class="hover:text-red-800 transition">大地日誌</a>
+                <a href="#story" class="hover:text-red-800 transition">文化傳承</a>
                 <a href="#shop" class="hover:text-red-800 transition">精品商店</a>
-                <a href="#" class="bg-jujube text-white px-4 py-1 rounded-full">立即下單</a>
+                <a href="#" class="bg-jujube text-white px-6 py-2 rounded-full hover:opacity-90 transition shadow-lg shadow-red-900/10">立即下單</a>
             </div>
         </div>
     </nav>
 
-    <section class="h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- 主頁英雄區面 (Hero Section) -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#F2F0EB]">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover opacity-40" alt="Gongguan Farm">
+            <!--  -->
+            <img src="https://images.unsplash.com/photo-1596716515822-4467f1be73df?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover opacity-30 grayscale-[20%]" alt="苗栗公館紅棗園">
         </div>
-        <div class="relative z-10 text-center px-6">
-            <span class="text-sm tracking-[0.3em] uppercase mb-4 block">Gongguan, Miaoli</span>
-            <h1 class="text-5xl md:text-7xl mb-6 jujube-red">陽光與清泉的紅寶石</h1>
-            <p class="text-lg md:text-xl font-light leading-loose max-w-2xl mx-auto">
-                全台唯一，來自穿龍圳百年灌溉系統滋養。<br>
-                結合 AI 智慧監測技術，將每一份純淨透明地呈現。
+        <div class="relative z-10 text-center px-6 fade-in">
+            <span class="text-xs tracking-[0.5em] uppercase mb-6 block text-stone-400 font-bold tracking-widest uppercase">Smart Agriculture & Data Service</span>
+            <h1 class="text-5xl md:text-8xl mb-8 jujube-red-text leading-tight serif">苗栗公館紅棗<br>AI 智慧電商</h1>
+            <p class="text-lg md:text-xl font-light leading-loose max-w-3xl mx-auto text-stone-600">
+                全台唯一產區，百年穿龍圳灌溉。<br>
+                結合 AI 智慧數據服務，讓紅棗生長的每一刻都清澈透明。
             </p>
-            <div class="mt-10">
-                <a href="#growth" class="border border-stone-400 px-8 py-3 hover:bg-stone-800 hover:text-white transition duration-500">查看今日生長報告</a>
+            <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#growth" class="bg-white border border-stone-200 px-10 py-4 rounded-full hover:bg-stone-50 transition duration-500 text-sm tracking-widest">查看今日生長報告</a>
+                <a href="#shop" class="bg-jujube text-white px-10 py-4 rounded-full hover:opacity-90 transition duration-500 text-sm tracking-widest shadow-xl shadow-red-900/20">進入精品商店</a>
             </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-stone-300 animate-bounce">
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
-    <section id="growth" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <div>
-                    <h2 class="text-3xl mb-4">AI 智慧生長監測</h2>
-                    <p class="text-stone-500">實時串連穿龍圳數據，每一顆紅棗的誕生皆有跡可循。</p>
+    <!-- AI 生長監測看板 (AI Growth Dashboard) -->
+    <section id="growth" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div class="max-w-xl text-left">
+                    <h2 class="text-4xl mb-6 jujube-red-text serif">AI 智慧生長監測</h2>
+                    <p class="text-stone-500 leading-relaxed">我們透過部署在果園的 IoT 感測器與 AI 影像辨識系統，實時追蹤穿龍圳水質與氣候因子，讓消費者看見每一顆紅棗的生長真相。</p>
                 </div>
-                <div class="text-right mt-6 md:mt-0">
-                    <span class="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold">● 系統在線：智慧決策服務中</span>
+                <div class="mt-8 md:mt-0 flex items-center space-x-4 bg-stone-50 px-6 py-3 rounded-2xl border border-stone-100">
+                    <div class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </div>
+                    <span class="text-xs font-bold text-stone-500 tracking-widest uppercase tracking-widest">Live Data: 2026-04-29</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
-                    <i class="fa-solid fa-droplet text-blue-300 text-2xl mb-4"></i>
-                    <h3 class="text-lg mb-2">穿龍圳水質</h3>
-                    <p class="text-3xl font-light mb-4">pH 7.2 <span class="text-sm text-stone-400">清澈</span></p>
-                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- 水質監測 -->
+                <div class="airy-shadow p-10 rounded-3xl border border-stone-50 bg-white hover:border-blue-100 transition group text-left relative overflow-hidden">
+                    <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-400 mb-8 group-hover:scale-110 transition relative z-10">
+                        <i class="fa-solid fa-droplet text-xl"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-stone-400 mb-2 tracking-widest uppercase relative z-10">穿龍圳水質 pH</h3>
+                    <div class="flex items-baseline space-x-2 mb-6 relative z-10">
+                        <p class="text-5xl font-light text-stone-800" id="ph-val">7.2</p>
+                        <span class="text-blue-500 font-bold text-xs uppercase">優良清澈</span>
+                    </div>
+                    <div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden relative z-10">
                         <div class="bg-blue-300 h-full w-[85%]"></div>
                     </div>
+                    <!-- 背景裝飾 -->
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/30 rounded-full -mr-10 -mt-10 blur-2xl"></div>
                 </div>
-                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
-                    <i class="fa-solid fa-sun text-yellow-300 text-2xl mb-4"></i>
-                    <h3 class="text-lg mb-2">今日累計日照</h3>
-                    <p class="text-3xl font-light mb-4">8.5 <span class="text-sm text-stone-400">小時</span></p>
-                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
-                        <div class="bg-yellow-300 h-full w-[70%]"></div>
+
+                <!-- 日照監測 -->
+                <div class="airy-shadow p-10 rounded-3xl border border-stone-50 bg-white hover:border-yellow-100 transition group text-left relative overflow-hidden">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-500 mb-8 group-hover:scale-110 transition relative z-10">
+                        <i class="fa-solid fa-sun text-xl"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-stone-400 mb-2 tracking-widest uppercase relative z-10">累積日照強度</h3>
+                    <div class="flex items-baseline space-x-2 mb-6 relative z-10">
+                        <p class="text-5xl font-light text-stone-800" id="sun-val">8.2</p>
+                        <span class="text-yellow-600 font-bold text-xs uppercase">陽光充足</span>
+                    </div>
+                    <div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden relative z-10">
+                        <div class="bg-yellow-400 h-full w-[75%]"></div>
+                    </div>
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-50/30 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+                </div>
+
+                <!-- 生長預測 -->
+                <div class="airy-shadow p-10 rounded-3xl border border-stone-50 bg-white hover:border-red-100 transition group text-left relative overflow-hidden">
+                    <div class="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-400 mb-8 group-hover:scale-110 transition relative z-10">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-stone-400 mb-2 tracking-widest uppercase relative z-10">AI 預估採收進度</h3>
+                    <div class="flex items-baseline space-x-2 mb-6 relative z-10">
+                        <p class="text-5xl font-light text-stone-800" id="progress-val">92%</p>
+                        <span class="text-red-500 font-bold text-xs uppercase">果實熟成中</span>
+                    </div>
+                    <div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden relative z-10">
+                        <div class="bg-red-500 h-full w-[92%]"></div>
+                    </div>
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-red-50/30 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 大地日誌 (AI Journal Section) -->
+    <section id="journal" class="py-32 bg-stone-50 relative overflow-hidden">
+        <!-- 背景裝飾圖片：紅棗園遠景 -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1596716515822-4467f1be73df?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Orchard Background">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-stone-400 tracking-[0.3em] uppercase">AI Content Service</span>
+                <h2 class="text-4xl mt-4 mb-4 serif">AI 每日大地日誌</h2>
+                <div class="w-10 h-0.5 bg-red-800 mx-auto opacity-30"></div>
+            </div>
+            
+            <div class="bg-white p-12 md:p-20 rounded-[40px] shadow-2xl shadow-stone-200/50 border border-white text-left">
+                <div class="flex justify-between items-start mb-12">
+                    <div>
+                        <p class="text-xs font-bold text-stone-400 uppercase tracking-widest">Growth Diary</p>
+                        <p class="text-2xl font-light serif mt-1">2026年4月29日 穀雨</p>
+                    </div>
+                    <div class="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-pen-nib text-stone-300"></i>
                     </div>
                 </div>
-                <div class="airy-shadow p-8 rounded-2xl border border-stone-50">
-                    <i class="fa-solid fa-chart-line text-red-300 text-2xl mb-4"></i>
-                    <h3 class="text-lg mb-2">AI 預估採收日</h3>
-                    <p class="text-3xl font-light mb-4">7/28 <span class="text-sm text-stone-400">成熟期</span></p>
-                    <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
-                        <div class="bg-red-300 h-full w-[92%]"></div>
+                
+                <div class="prose prose-stone max-w-none">
+                    <p class="text-xl leading-relaxed text-stone-600 serif italic border-l-4 border-red-800/20 pl-8 mb-12">
+                        「清晨五點，公館果園迎來微弱水氣。穿龍圳的水位穩定，AI 感測到土壤含水量維持在 68%，這對正處於轉紅初期的紅棗至關重要。陽光強度溫和，光合作用效率預計在午後達到峰值。」
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm leading-loose text-stone-500">
+                        <div>
+                            <h4 class="font-bold text-stone-800 mb-4 flex items-center serif">
+                                <span class="w-1.5 h-1.5 bg-red-800 rounded-full mr-2"></span> 農業智慧建議
+                            </h4>
+                            <p>當前環境利於乾物質積累，建議減少灌溉頻率以提升脆甜度。AI 模型預測未來三日天氣晴朗，是果皮上色的黃金期。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-stone-800 mb-4 flex items-center serif">
+                                <span class="w-1.5 h-1.5 bg-red-800 rounded-full mr-2"></span> 生態紀錄摘要
+                            </h4>
+                            <p>監測系統於凌晨 02:14 辨識出石虎活動跡象，顯示果園生態維持優良平衡，實現人與土地的和諧共生。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="story" class="py-24 flex items-center">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&fit=crop&q=80&w=1000" class="rounded-lg shadow-2xl" alt="Red Dates Close up">
+    <!-- 品牌故事 (Story Section) -->
+    <section id="story" class="py-32 flex items-center bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="order-2 md:order-1 relative">
+                <!--  -->
+                <img src="https://hips.hearstapps.com/hmg-prod/images/dried-chinese-dates-royalty-free-image-1696581619.jpg?crop=1.00xw:0.752xh;0,0.248xh">
+                <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-jujube rounded-3xl rotate-12 -z-10 opacity-10"></div>
             </div>
-            <div class="order-1 md:order-2">
-                <h2 class="text-4xl mb-8">百年穿龍圳，<br>流動的智慧。</h2>
-                <p class="leading-loose text-stone-600 mb-6">
+            <div class="order-1 md:order-2 text-left">
+                <h2 class="text-4xl md:text-5xl mb-10 jujube-red-text leading-tight serif">百年穿龍圳，<br>流動的智慧。</h2>
+                <p class="leading-loose text-stone-600 mb-8 text-sm font-light">
                     公館的紅棗不只是作物，它是與土地共生的成果。我們引進後龍溪的清澈水源，透過百年穿龍圳的灌溉系統，維持了土地最原始的活力。
                 </p>
-                <p class="leading-loose text-stone-600">
-                    現在，我們透過 AI 資訊服務，將這份古老的智慧轉化為精確的生長日誌，讓您每一口品嚐到的，都是透明、純淨的土地承諾。
+                <p class="leading-loose text-stone-600 text-sm font-light border-l-2 border-stone-100 pl-6 italic">
+                    現在，我們透過 AI 資訊服務，將這份古老的智慧轉化為精確的數位日誌，讓您每一口品嚐到的，都是透明、純淨的土地承諾。
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="shop" class="py-24 bg-stone-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl mb-4">產地精品</h2>
-                <div class="w-12 h-[1px] bg-stone-300 mx-auto"></div>
+    <!-- 精品商店 (Shop Section) -->
+    <section id="shop" class="py-32 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 text-left">
+                <div>
+                    <h2 class="text-4xl mb-4 jujube-red-text serif">產地精品商店</h2>
+                    <p class="text-stone-500">嚴選公館在地農獲，每一口都是 AI 精準呵護下的滋味。</p>
+                </div>
+                <a href="#" class="text-xs font-bold tracking-widest text-stone-400 hover:text-red-800 transition py-2 border-b border-stone-200 uppercase mt-4 md:mt-0 tracking-widest uppercase">View All Collection</a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="group">
-                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
-                        <img src="https://images.unsplash.com/photo-1615485500704-8e990f3900f1?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- 商品 1：特級乾紅棗 -->
+                <div class="group cursor-pointer text-left">
+                    <div class="aspect-[3/4] bg-stone-100 mb-6 overflow-hidden rounded-3xl relative airy-shadow">
+                        <!--  -->
+                        <img src="https://shoplineimg.com/5a3080c2d4e3951b1b001eb1/631fdfb8516cc500109f51c5/800x.webp?source_format=jpg">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase">Premium Grade</div>
                     </div>
-                    <h3 class="text-sm tracking-wider">特級手工曬乾紅棗</h3>
-                    <p class="text-xs text-stone-400 mt-1">NT$ 450</p>
+                    <h3 class="text-sm font-bold mb-1 tracking-wider serif">特級手工曬乾紅棗</h3>
+                    <p class="text-[11px] text-stone-400 mb-3">來自西區契作農場・自然慢曬</p>
+                    <p class="text-sm font-bold jujube-red-text">NT$ 450</p>
                 </div>
-                <div class="group">
-                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
-                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                <!-- 商品 2：紅棗醬 -->
+                <div class="group cursor-pointer text-left">
+                    <div class="aspect-[3/4] bg-stone-100 mb-6 overflow-hidden rounded-3xl relative airy-shadow">
+                        <!--  -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCld49Y9AbAkVi2BEJHR4R4wwGG13K5k1TjQ&s">
                     </div>
-                    <h3 class="text-sm tracking-wider">紅棗純釀果醋</h3>
-                    <p class="text-xs text-stone-400 mt-1">NT$ 580</p>
+                    <h3 class="text-sm font-bold mb-1 tracking-wider serif">AI 精準溫控紅棗醬</h3>
+                    <p class="text-[11px] text-stone-400 mb-3">低溫熬煮・保留紅棗天然多酚</p>
+                    <p class="text-sm font-bold jujube-red-text">NT$ 380</p>
                 </div>
-                <div class="group">
-                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
-                        <img src="https://www.google.com/imgres?q=%E8%88%92%E5%A3%93%E7%B4%85%E6%A3%97%E8%8C%B6%E5%8C%85%E7%B5%84&imgurl=https%3A%2F%2Fimg.shoplineapp.com%2Fmedia%2Fimage_clips%2F5ef2f6173cc749003f191963%2Foriginal.jpg%3F1592981013&imgrefurl=https%3A%2F%2Fshop.magnet.com.tw%2Fproducts%2Forganic-jujube-tea-with-cranberry%3Fsrsltid%3DAfmBOorDC9_tM98nMtfOcxBNJ7BTni4V1EVPuBtSt8ASBwbT4PgVo0hA&docid=F_4EXH2DJ35IXM&tbnid=XePvAtNnpxDHlM&vet=12ahUKEwiDtYCT0JKUAxXVlK8BHQW9H9AQnPAOegQINRAB..i&w=1000&h=1000&hcb=2&ved=2ahUKEwiDtYCT0JKUAxXVlK8BHQW9H9AQnPAOegQINRAB" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                <!-- 商品 3：紅棗茶 -->
+                <div class="group cursor-pointer text-left">
+                    <div class="aspect-[3/4] bg-stone-100 mb-6 overflow-hidden rounded-3xl relative airy-shadow">
+                        <!--  -->
+                        <img src="https://picture.smartweb.tw/3199/prod/title_216805.jpg?1532">
                     </div>
-                    <h3 class="text-sm tracking-wider">舒壓紅棗茶包組</h3>
-                    <p class="text-xs text-stone-400 mt-1">NT$ 320</p>
+                    <h3 class="text-sm font-bold mb-1 tracking-wider serif">補氣杭菊紅棗茶組</h3>
+                    <p class="text-[11px] text-stone-400 mb-3">搭配苗栗杭菊・產地純淨嚴選</p>
+                    <p class="text-sm font-bold jujube-red-text">NT$ 320</p>
                 </div>
-                <div class="group">
-                    <div class="aspect-[3/4] bg-white mb-4 overflow-hidden rounded-sm relative">
-                        <img src="https://images.unsplash.com/photo-1590004953392-5aba2e786369?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Product">
+                <!-- 商品 4：新鮮紅棗 -->
+                <div class="group cursor-pointer text-left">
+                    <div class="aspect-[3/4] bg-stone-100 mb-6 overflow-hidden rounded-3xl relative airy-shadow">
+                        <div class="absolute inset-0 bg-red-900/40 z-10 flex items-center justify-center backdrop-blur-[2px]">
+                            <span class="text-white border border-white px-6 py-2 tracking-[0.2em] text-xs">即將開放預購</span>
+                        </div>
+                        <!--  -->
+                        <img src="https://images.unsplash.com/photo-1634629373117-21957f12e873?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="新鮮紅棗">
                     </div>
-                    <h3 class="text-sm tracking-wider">預購：產地生鮮紅棗</h3>
-                    <p class="text-xs text-stone-400 mt-1">NT$ 200 / 斤</p>
+                    <h3 class="text-sm font-bold mb-1 tracking-wider serif">預購：限量生鮮紅棗</h3>
+                    <p class="text-[11px] text-stone-400 mb-3">每年七月限定・產地直送鮮甜</p>
+                    <p class="text-sm font-bold jujube-red-text">NT$ 200 / 斤</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="ai-assistant" class="fixed bottom-8 right-8 z-[100]">
-        <div id="chat-bubble" class="bg-white border border-stone-100 airy-shadow px-6 py-4 rounded-2xl mb-4 hidden max-w-[250px] text-sm animate-bounce">
-            您好！我是紅棗 AI 助手，今天公館陽光普照，適合採收喔！想了解紅棗食譜嗎？
+    <!-- AI 互動助手 (Floating AI Widget) -->
+    <div id="ai-assistant" class="fixed bottom-10 right-10 z-[100]">
+        <!-- 聊天視窗 -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[350px] bg-white rounded-[32px] airy-shadow border border-stone-100 overflow-hidden flex flex-col transition-all duration-300">
+            <div class="bg-jujube p-6 text-white text-left">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold tracking-widest serif uppercase">Gongguan AI Assistant</p>
+                        <p class="text-[10px] opacity-70">正在串接穿龍圳實時數據...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-grow p-6 h-[300px] overflow-y-auto space-y-4 text-left" id="chat-body">
+                <div class="bg-stone-50 p-4 rounded-2xl rounded-tl-none text-[11px] leading-loose text-stone-600 font-light">
+                    您好！我是紅棗智慧小助手。根據 AI 分析，今日公館日照充足，紅棗的採收進度已達 92% 囉！想了解紅棗的補氣食譜，或是看看最新的產地日誌嗎？
+                </div>
+            </div>
+            <div class="p-4 border-t border-stone-50 flex space-x-2">
+                <input type="text" placeholder="詢問 AI 關於公館紅棗的問題..." class="flex-grow bg-stone-100 border-none rounded-full px-4 py-2 text-xs focus:ring-0">
+                <button class="bg-jujube text-white w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-up text-xs text-white"></i>
+                </button>
+            </div>
         </div>
-        <button onclick="toggleChat()" class="bg-jujube text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:rotate-12 transition">
-            <i class="fa-solid fa-robot text-xl"></i>
+        <!-- 觸發按鈕 -->
+        <button onclick="toggleChat()" class="bg-jujube text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-500 group">
+            <i class="fa-solid fa-message-sparkles text-xl group-hover:rotate-12 transition text-white"></i>
+            <span class="absolute -top-1 -right-1 flex h-5 w-5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-5 w-5 bg-red-500 text-[8px] flex items-center justify-center text-white">1</span>
+            </span>
         </button>
     </div>
 
-    <footer class="py-12 border-t border-stone-200">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest text-stone-400">
-            <p>© 2026 苗栗公館紅棗｜AI 數位轉型計畫</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="https://github.com" class="hover:text-stone-800">GITHUB SOURCE</a>
-                <a href="#" class="hover:text-stone-800">INSTAGRAM</a>
+    <!-- 頁尾 (Footer) -->
+    <footer class="py-20 border-t border-stone-100 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 text-left">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-8 h-8 bg-jujube rounded-full flex items-center justify-center text-white text-xs serif">棗</div>
+                        <div class="text-xl font-bold tracking-[0.2em] jujube-red-text serif">公館紅棗</div>
+                    </div>
+                    <p class="text-xs text-stone-400 leading-loose max-w-sm font-light">
+                        我們致力於將傳統農業與 AI 資訊服務結合，透過數據透明化，將苗栗公館的這顆紅寶石，以最純粹的方式帶到您的餐桌。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-stone-800 mb-6 serif tracking-widest uppercase">智慧服務</h4>
+                    <ul class="text-xs text-stone-400 space-y-4 font-light">
+                        <li><a href="#" class="hover:text-red-800 transition">生長數據中心</a></li>
+                        <li><a href="#" class="hover:text-red-800 transition">AI 農業日誌</a></li>
+                        <li><a href="#" class="hover:text-red-800 transition">產地溯源系統</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-stone-800 mb-6 serif tracking-widest uppercase">聯繫與追蹤</h4>
+                    <ul class="text-xs text-stone-400 space-y-4 font-light">
+                        <li><a href="#" class="hover:text-red-800 transition">Instagram</a></li>
+                        <li><a href="#" class="hover:text-red-800 transition">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-800 transition">GitHub Project</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-stone-50 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest text-stone-300 uppercase font-bold">
+                <p>© 2026 MIAOLI GONGGUAN RED DATES. AI TRANSFORMATION PROJECT.</p>
+                <p class="mt-4 md:mt-0 font-light uppercase">Design & AI Logic by Canvas Assistant</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // 簡單的 AI 助手切換
+        // AI 客服視窗切換邏輯
         function toggleChat() {
-            const bubble = document.getElementById('chat-bubble');
-            bubble.classList.toggle('hidden');
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.classList.toggle('hidden');
         }
 
-        // 滾動效果：導覽列背景變換
+        // 導覽列滾動動態效果
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-sm');
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 100) {
+                nav.classList.remove('py-5');
+                nav.classList.add('py-3', 'shadow-xl', 'shadow-stone-200/20');
             } else {
-                nav.classList.remove('shadow-sm');
+                nav.classList.add('py-5');
+                nav.classList.remove('py-3', 'shadow-xl', 'shadow-stone-200/20');
             }
         });
+
+        // 模擬動態數據跳動 (增加實時服務感)
+        setInterval(() => {
+            const ph = (7.1 + Math.random() * 0.2).toFixed(1);
+            const sun = (8.1 + Math.random() * 0.4).toFixed(1);
+            const phEl = document.getElementById('ph-val');
+            const sunEl = document.getElementById('sun-val');
+            if(phEl) phEl.innerText = ph;
+            if(sunEl) sunEl.innerText = sun;
+        }, 3000);
     </script>
 </body>
 </html>
